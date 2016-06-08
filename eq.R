@@ -6,8 +6,6 @@ library(leaflet)    ## mapping package
 
 ## load/prep data
 d <- fread("eq_dat.csv")
-d <- subset(d, type=="earthquake")
-d$type <- as.factor(as.character(d$type))
 
 ## classify using definitions laid out in http://www.geo.mtu.edu/UPSeis/magnitude.html
 d$class <- cut(d$mag, c(0,4,5,6,7,8,100), c("Minor", "Light", "Moderate", "Strong", "Major", "Great"))
